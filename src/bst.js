@@ -10,20 +10,22 @@ export default class BST {
         } else {
             let currentNode = this.root;    
             while (true) {
-            if (currentNode.data > insertedNode.data) {
-                if (currentNode.left === null) {
-                    currentNode.left = insertedNode;
-                    return this;
+                if (currentNode.data > insertedNode.data) {
+                    if (currentNode.left === null) {
+                        currentNode.left = insertedNode;
+                        return this;
+                    } else {
+                        currentNode = currentNode.left;
+                    }
+                } else if (currentNode.data < insertedNode.data) {
+                    if (currentNode.right === null) {
+                        currentNode.right = insertedNode;
+                        return this;
+                    } else {
+                        currentNode = currentNode.right
+                    }
                 } else {
-                    currentNode = currentNode.left;
-                }
-            } else if (currentNode.data < insertedNode.data) {
-                if (currentNode.right === null) {
-                    currentNode.right = insertedNode;
                     return this;
-                } else {
-                    currentNode = currentNode.right
-                }
                 }
             }
         }

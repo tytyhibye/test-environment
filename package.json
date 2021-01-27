@@ -1,13 +1,13 @@
 {
-    "name": "Test-Environment",
-    "version": "1.0.0",
-    "description": "Testing different data types and algorithms",
-    "scripts": {
-      "test": "jest --coverage"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.6.4",
-      "@babel/plugin-transform-modules-commonjs": "^7.6.0",
-      "jest": "^24.9.0"
-    }
+  "name": "test-environment",
+  "version": "1.0.0",
+  "description": "area to test data structures",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "jest": "^24.9.0"
   }
+}

@@ -120,5 +120,21 @@ describe('binarySearchTree test #2', () => {
 
 	test('it should return true if the tree includes 5', () => {
 		expect(pbst.search(5)).toEqual(true);
+    });
+    
+});
+
+describe('binarySearchTree test #3', () => {
+
+	const pbst = new BST();
+	
+	beforeEach(() => {
+	pbst.insert(new BSTNode(4));
+	pbst.insert(new BSTNode(2));
+	pbst.insert(new BSTNode(6));
 	});
+test('should remove node from tree', () => {
+    pbst.remove(6);
+    expect(pbst.search(6)).toEqual(false);
+});
 });

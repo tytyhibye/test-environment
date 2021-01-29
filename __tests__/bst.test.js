@@ -147,10 +147,22 @@ test('should remove right child leaf node from tree', () => {
     expect(pbst.search(7)).toEqual(false);
 });
 
-// test('should remove node with child from tree', () => {
-//     pbst.remove(2);
-//     expect(pbst.search(2)).toEqual(false);
-// });
+test('should remove left childs right leaf node from tree', () => {
+    pbst.remove(3);
+    expect(pbst.search(3)).toEqual(false);
+});
+
+test('should remove right childs left leaf node from tree', () => {
+    pbst.remove(5);
+    expect(pbst.search(5)).toEqual(false);
+});
+
+test('should remove node with child from tree and replace with child', () => {
+    pbst.remove(5);
+    pbst.remove(6);
+    expect(pbst.search(6)).toEqual(false);
+    console.log(pbst);
+});
 
 
 // test('should replace root node with median child', () => {

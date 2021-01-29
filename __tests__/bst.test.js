@@ -132,15 +132,29 @@ describe('binarySearchTree test #3', () => {
 	pbst.insert(new BSTNode(4));
 	pbst.insert(new BSTNode(2));
     pbst.insert(new BSTNode(6));
+    pbst.insert(new BSTNode(1));
+	pbst.insert(new BSTNode(3));
+    pbst.insert(new BSTNode(5));
+    pbst.insert(new BSTNode(7));
 	});
-test('should remove node from tree', () => {
-    pbst.remove(6);
-    expect(pbst.search(6)).toEqual(false);
+test('should remove left child leaf node from tree', () => {
+    pbst.remove(1);
+    expect(pbst.search(1)).toEqual(false);
 });
 
-test('should replace root node with right child', () => {
-    pbst.insert(new BSTNode(5));
+test('should remove right child leaf node from tree', () => {
+    pbst.remove(7);
+    expect(pbst.search(7)).toEqual(false);
+});
+
+test('should remove node with child from tree', () => {
+    pbst.remove(2);
+    expect(pbst.search(2)).toEqual(false);
+});
+
+
+test('should replace root node with median child', () => {
     pbst.remove(4);
-    expect(pbst.insert(6).toEqual({"root": {"data": 5, "left": {"data": 2, "left": null, "right": null}, "right": {"data": 6, "left": null, "right": null}}}));
+    expect(pbst.insert().toEqual({"root": {"data": 3, "left": {"data": 2, "left": {"data": 1, "left": null, "right": null}, "right": null}, "right": {"data": 6, "left": {"data": 5, "left": null, "right": null}, "right": {"data": 7, "left": null, "right": null}}}}));
 });
 });

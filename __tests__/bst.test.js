@@ -131,10 +131,16 @@ describe('binarySearchTree test #3', () => {
 	beforeEach(() => {
 	pbst.insert(new BSTNode(4));
 	pbst.insert(new BSTNode(2));
-	pbst.insert(new BSTNode(6));
+    pbst.insert(new BSTNode(6));
 	});
 test('should remove node from tree', () => {
     pbst.remove(6);
     expect(pbst.search(6)).toEqual(false);
+});
+
+test('should replace root node with right child', () => {
+    pbst.insert(new BSTNode(5));
+    pbst.remove(4);
+    expect(pbst.insert(6).toEqual({"root": {"data": 5, "left": {"data": 2, "left": null, "right": null}, "right": {"data": 6, "left": null, "right": null}}}));
 });
 });

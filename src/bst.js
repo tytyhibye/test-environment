@@ -49,4 +49,43 @@ export default class BST {
             }
         }
     }
+
+    remove(value) {
+        const removeNode = (node, value) => {
+            
+            if (!node) { // no node exists
+                return null;
+            }
+
+            if (value == node.data) { // found node
+                if(!node.left && !node.right) { // node is a leaf
+                    return null;
+                }
+                if (!node.left) { // no left child
+                    return node.right;
+                }
+                if (!node.right) { // no right child
+                    return node.left;
+                }
+
+                let temp = node.right;// assign right child node to temp
+
+                while(!temp.left) { // while there is a left child,
+                    temp = temp.left; // traverse left branches
+                }
+                node.data = temp.value; // replace node value with temp
+                node.right = removeNode(node.right, temp.value); // delete leaf
+
+            } else if (node.value > value) { // if target is less, go left
+                node.left = removeNode(node.left, value);
+                return node; // return updated node after removal
+            } else { // if target is more, go right
+                node.right = removeNode(node.right, value);
+                return node;
+            }
+        }
+
+        this.root = removeNode(this.root, value);
+    }
+
 }

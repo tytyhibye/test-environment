@@ -147,14 +147,14 @@ test('should remove right child leaf node from tree', () => {
     expect(pbst.search(7)).toEqual(false);
 });
 
-test('should remove node with child from tree', () => {
-    pbst.remove(2);
-    expect(pbst.search(2)).toEqual(false);
-});
+// test('should remove node with child from tree', () => {
+//     pbst.remove(2);
+//     expect(pbst.search(2)).toEqual(false);
+// });
 
 
-test('should replace root node with median child', () => {
-    pbst.remove(4);
-    expect(pbst.insert().toEqual({"root": {"data": 3, "left": {"data": 2, "left": {"data": 1, "left": null, "right": null}, "right": null}, "right": {"data": 6, "left": {"data": 5, "left": null, "right": null}, "right": {"data": 7, "left": null, "right": null}}}}));
-});
+// test('should replace root node with median child', () => {
+//     pbst.remove(4);
+//     expect(pbst.insert().toEqual({"root": {"data": 3, "left": {"data": 2, "left": {"data": 1, "left": null, "right": null}, "right": null}, "right": {"data": 6, "left": {"data": 5, "left": null, "right": null}, "right": {"data": 7, "left": null, "right": null}}}}));
+// });
 });

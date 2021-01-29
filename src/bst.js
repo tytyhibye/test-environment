@@ -52,7 +52,7 @@ export default class BST {
 
     remove(value) {
         const removeNode = (node, value) => {
-
+            
             if (!node) { // no node exists
                 return null;
             }
@@ -68,19 +68,19 @@ export default class BST {
                     return node.left;
                 }
 
-                let temp = node.left;// assign left child node to temp
+                let temp = node.right;// assign right child node to temp
 
-                while(!temp.right) { // while there is a right child,
-                    temp = temp.right; // traverse right branches
+                while(!temp.left) { // while there is a left child,
+                    temp = temp.left; // traverse left branches
                 }
                 node.data = temp.value; // replace node value with temp
                 node.right = removeNode(node.right, temp.value); // delete leaf
 
-            } else if (node.value > value) { // if target is less, go right
-                node.right = removeNode(node.right, value);
-                return node; // return updated node after removal
-            } else if (node.data < value) { // if target is more, go left
+            } else if (node.data > value) { // if target is less, go left
                 node.left = removeNode(node.left, value);
+                return node; // return updated node after removal
+            }  else if (node.data < value) { // if target is more, go right
+                node.right = removeNode(node.right, value);
                 return node;
             }
         }
